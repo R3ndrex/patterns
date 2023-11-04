@@ -1,27 +1,20 @@
-# Compiling and Running a C# Program
+# Running a Python Application (.py File)
 
-If you want to compile and run a C# program, follow these steps:
+To run a Python application with a .py extension, follow these steps if you already have Python installed on your computer:
 
-1. **Install .NET SDK:**
+1. Open the command prompt or terminal on your computer. In Windows, this could be Command Prompt or PowerShell, while in Linux or macOS, you would use a terminal.
 
-   If you don't have the .NET SDK installed, download and install it from the official website: [Download .NET SDK](https://dotnet.microsoft.com/download/dotnet).
+2. Navigate to the directory where your .py file is located. You can use the `cd` command (in Windows) or `cd` (in Linux and macOS) to navigate through the file system.
 
-2. **Create a C# File:**
+3. Once you're in the directory with your .py file, execute the following command to run the application:
 
-   Create or obtain a C# source code file using a text editor like Notepad, Visual Studio Code, or any other code editor.
+In Windows:
+python filename.py
 
-3. **Open Command Prompt or Terminal:**
 
-   - On Windows, press Win+R, type "cmd," and press Enter.
-   - On macOS or Linux, open the Terminal.
+In Linux and macOS:
+python3 filename.py
 
-4. **Navigate to the Directory with Your C# File:**
+Here, `filename.py` should be replaced with the actual name of your Python script.
 
-   Use the `cd` command to navigate to the directory where your C# file is located.
-
-5. **Compile the C# File:**
-
-   Use the `csc` command followed by your C# source file's name:
-
-   ```bash
-   csc YourFile.cs
+If Python is not installed on your computer, you'll need to install it first. You can download Python from the official Python website (https://www.python.org/downloads/) and follow the installation instructions for your operating system. After installation, you'll be able to run .py files using the commands mentioned above.
