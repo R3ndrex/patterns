@@ -1,57 +1,40 @@
 from abc import ABC, abstractmethod
 
-class AbstractFactory(ABC):
+class Animal(ABC):
     @abstractmethod
-    def create_product_a(self):
+    def speak(self):
         pass
 
+class AnimalFactory(ABC):
     @abstractmethod
-    def create_product_b(self):
+    def create_animal(self):
         pass
 
-class ConcreteFactory1(AbstractFactory):
-    def create_product_a(self):
-        return ConcreteProductA1()
+class Dog(Animal):
+    def speak(self):
+        return "Woof!"
 
-    def create_product_b(self):
-        return ConcreteProductB1()
+class Cat(Animal):
+    def speak(self):
+        return "Meow!"
 
-class ConcreteFactory2(AbstractFactory):
-    def create_product_a(self):
-        return ConcreteProductA2()
+class DogFactory(AnimalFactory):
+    def create_animal(self):
+        return Dog()
 
-    def create_product_b(self):
-        return ConcreteProductB2()
+class CatFactory(AnimalFactory):
+    def create_animal(self):
+        return Cat()
 
-class AbstractProductA(ABC):
-    @abstractmethod
-    def operation_a(self):
-        pass
+def get_animal_speech(factory):
+    animal = factory.create_animal()
+    return animal.speak()
 
-class AbstractProductB(ABC):
-    @abstractmethod
-    def operation_b(self):
-        pass
+dog_factory = DogFactory()
+cat_factory = CatFactory()
 
-class ConcreteProductA1(AbstractProductA):
-    def operation_a(self):
-        return "Product A1"
+dog_speech = get_animal_speech(dog_factory)
+print("Dog:", dog_speech)  # Woof!
 
-class ConcreteProductB1(AbstractProductB):
-    def operation_b(self):
-        return "Product B1"
-
-class ConcreteProductA2(AbstractProductA):
-    def operation_a(self):
-        return "Product A2"
-
-class ConcreteProductB2(AbstractProductB):
-    def operation_b(self):
-        return "Product B2"
-
-factory = ConcreteFactory1()
-product_a = factory.create_product_a()
-product_b = factory.create_product_b()
-
-print(product_a.operation_a())  # "Product A1"
-print(product_b.operation_b())  # "Product B1"
+cat_speech = get_animal_speech(cat_factory)
+print("Cat:", cat_speech)  # Meow!
