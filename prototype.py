@@ -32,6 +32,5 @@ cat_clone2 = cat_prototype.clone()
 
 print(f"Dog 1: {dog_clone1.name}, {dog_clone1.breed}") # Боня, Англійський бульдог
 print(f"Dog 2: {dog_clone2.name}, {dog_clone2.breed}") # Боня, Англійський бульдог
-
 print(f"Cat 1: {cat_clone1.name}, {cat_clone1.color}") # Персик, Білий
 print(f"Cat 2: {cat_clone2.name}, {cat_clone2.color}") # Персик, Білий
