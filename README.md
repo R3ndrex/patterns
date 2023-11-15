@@ -4,7 +4,7 @@ To run a Python application with a .py extension, follow these steps if you alre
 
 1. Open the command prompt or terminal on your computer. In Windows, this could be Command Prompt or PowerShell, while in Linux or macOS, you would use a terminal.
 
-2. Navigate to the directory where your .py file is located. You can use the `cd` command (in Windows) or `cd` (in Linux and macOS) to navigate through the file system.
+2. Navigate to the directory where your .py file is located. You can use the `cd` command to navigate through the file system.
 
 3. Once you're in the directory with your .py file, execute the following command to run the application:
 
