@@ -36,7 +36,6 @@ print(available_cars) # ["Bugatti"]
 carshowroom.add_car("Toyota", 4600)
 available_cars = carshowroom.get_available_cars()
 print(available_cars) # ["Bugatti","Toyota"]
-
 change = carshowroom.buy_car("Bugatti", 7000) 
 print(f"Your change after buying a car is a $ {change}") # Your change after buying a car is a $ 2000
 available_cars = carshowroom.get_available_cars()
