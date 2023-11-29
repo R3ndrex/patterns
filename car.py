@@ -21,26 +21,23 @@ class CarShowroom:
         if self.cars[car_name] > money:
             raise ValueError("Not enough money to buy the car")
         change = money - self.cars[car_name]
+        del self.cars[car_name]
         return change
 
 carshowroom1 = CarShowroom()
-carshowroom1.add_car("Buggatti", 5000)
+carshowroom1.add_car("Bugatti", 5000)
 available_cars = carshowroom1.get_available_cars()
-for car in available_cars:
-    price = carshowroom1.get_car_price(car)
-    print(f"{car}: ${price}")
+print(available_cars) # ["Bugatti"]
 
 carshowroom = CarShowroom()
 available_cars = carshowroom.get_available_cars()
-for car in available_cars:
-    price = carshowroom.get_car_price(car)
-    print(f"{car}: ${price}")
+print(available_cars) # ["Bugatti"]
 
 carshowroom.add_car("Toyota", 4600)
 available_cars = carshowroom.get_available_cars()
-for car in available_cars:
-    price = carshowroom.get_car_price(car)
-    print(f"{car}: ${price}")
+print(available_cars) # ["Bugatti","Toyota"]
 
-change = carshowroom.buy_car("Buggatti", 7000) 
+change = carshowroom.buy_car("Bugatti", 7000) 
 print(f"Your change after buying a car is a $ {change}") # Your change after buying a car is a $ 2000
+available_cars = carshowroom.get_available_cars()
+print(available_cars) # Bugatti
