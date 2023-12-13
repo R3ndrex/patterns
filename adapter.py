@@ -1,27 +1,27 @@
-# Інтерфейс тварини
 class Animal:
     def speak(self):
         pass
 
 class Dog(Animal):
     def speak(self):
-        return "Woof!"
+        print("Woof!")
 
-class CatAdapter(Animal):
-    def __init__(self, cat):
-        self.cat = cat
+class Cat(Animal):
+    def speak(self):
+        print("Meow!")
+
+class AnimalTranslator(Animal):
+    def __init__(self, animal):
+        self.animal = animal
 
     def speak(self):
-        return self.cat.meow()
-
-class Cat:
-    def meow(self):
-        return "Meow!"
-
+        return self.animal.speak()
 
 dog = Dog()
-print(dog.speak())  #  Woof!
-
 cat = Cat()
-cat_adapter = CatAdapter(cat)
-print(cat_adapter.speak())  #  Meow!
+
+translator = AnimalTranslator(dog)
+translator.speak() # Woof!
+
+translator = AnimalTranslator(cat)
+translator.speak() # Meow!
