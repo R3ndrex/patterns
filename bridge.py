@@ -1,47 +1,51 @@
-class Animal:
-    def __init__(self, name):
-        self.name = name
+from abc import ABC, abstractmethod
 
-    def speak(self):
-        return f"{self.name} говорить"
+class AnimalImplementation(ABC):
+    @abstractmethod
+    def speak_implementation(self) -> str:
+        pass
 
-
-class Dog(Animal):
-    def speak(self):
+class DogImplementation(AnimalImplementation):
+    def speak_implementation(self) -> str:
         return "Гав!"
 
 
-class Cat(Animal):
-    def speak(self):
+class CatImplementation(AnimalImplementation):
+    def speak_implementation(self) -> str:
         return "Мяу!"
 
 
-class Fish(Animal):
-    def speak(self):
+class FishImplementation(AnimalImplementation):
+    def speak_implementation(self) -> str:
         return "Бульк!"
     
-class AnimalManager:
-    def __init__(self):
-        self.animals = []
+class AnimalAbstraction(ABC):
+    def __init__(self, implementation: AnimalImplementation) -> None:
+        self.implementation = implementation
 
-    def add_animal(self, animal):
-        self.animals.append(animal)
-
-    def remove_animal(self, animal):
-        self.animals.remove(animal)
-
-    def get_animal(self, name):
-        for animal in self.animals:
-            if animal.name == name:
-                return animal
-        return None
+    def speak(self) -> str:
+        return (f"AnimalAbstraction: Base speak with:\n"
+                f"{self.implementation.speak_implementation()}")
 
 
-manager = AnimalManager()
+class AnimalExtendedAbstraction(AnimalAbstraction):
+    def speak(self) -> str:
+        return (f"AnimalExtendedAbstraction: Extended speak with:\n"
+                f"{self.implementation.speak_implementation()}")
 
-manager.add_animal(Dog("Рекс"))
-manager.add_animal(Cat("Мурка"))
-manager.add_animal(Fish("Золота рибка"))
+def client_code(abstraction: AnimalAbstraction) -> None:
+    print(abstraction.speak())
 
-for animal in manager.animals:
-    print(animal.speak())
+
+if __name__ == "__main__":
+    dog_implementation = DogImplementation()
+    abstraction = AnimalAbstraction(dog_implementation)
+    client_code(abstraction)
+
+    cat_implementation=CatImplementation()
+    extended_abstraction = AnimalExtendedAbstraction(cat_implementation)
+    client_code(extended_abstraction)
+
+    fish_implementation = FishImplementation()
+    abstraction = AnimalAbstraction(fish_implementation)
+    client_code(abstraction)
