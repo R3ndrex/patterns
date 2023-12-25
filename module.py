@@ -9,9 +9,9 @@ class ProductionManager:
         return cls._instance
 
 product1 = ProductionManager(12.99, "Fanta", 1000)
-print("Name:", product1.price)
-print("Tail Length:", product1.title)
-print("Color:", product1.amount)
+print("Cost:", product1.price)
+print("Title:", product1.title)
+print("Amount:", product1.amount)
 
 product2 = ProductionManager(9.99, "Coca-Cola", 9201)
 print("Cost:", product2.price)  # 12.99
